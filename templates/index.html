@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Arbitrage Tracker</title>
+</head>
+<body>
+    <h1>Welcome to Crypto Arbitrage Tracker</h1>
+    <p>Real-time triangular arbitrage opportunities:</p>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Pair</th>
+                <th>Price (USDT)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pair, price in prices.items() %}
+            <tr>
+                <td>{{ pair }}</td>
+                <td>{{ price }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
