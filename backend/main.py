@@ -22,8 +22,13 @@ async def get_prices():
     url = "https://api.binance.com/api/v3/ticker/price"
     async with httpx.AsyncClient() as client:
         response = await client.get(url)
+        if response.status_code != 200:
+            return {"error": f"Failed to fetch data from Binance. Status Code: {response.status_code}"}
         data = response.json()
-    
+
+    # Log data for debugging
+    print(data)  # Check what the data looks like
+
     # Filter for specific trading pairs
     pairs_of_interest = ["BTCUSDT", "ETHUSDT", "BNBUSDT"]
     filtered_prices = {
