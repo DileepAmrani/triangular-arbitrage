@@ -12,7 +12,7 @@ const App = () => {
   useEffect(() => {
     const fetchPrices = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:8000/prices');
+        const response = await fetch('https://triangular-arbitrage-backend.vercel.app/prices');
         const data = await response.json();
         setUpdate(data);
 
