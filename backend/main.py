@@ -22,7 +22,7 @@ async def get_prices():
     url = "https://api.binance.com/api/v3/ticker/price"
     async with httpx.AsyncClient() as client:
         response = await client.get(url)
-        data = response.json()
+        data = await response.json()  # Await the JSON response
     
     # Filter for specific trading pairs
     pairs_of_interest = ["BTCUSDT", "ETHUSDT", "BNBUSDT"]
@@ -33,3 +33,4 @@ async def get_prices():
     }
 
     return {"prices": filtered_prices}
+
