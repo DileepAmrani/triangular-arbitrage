@@ -19,7 +19,7 @@ async def root():
 
 @app.get("/prices")
 async def get_prices():
-    url = "https://api.binance.com/api/v3/ticker/price"
+    url = "https://www.binance.com/api/v3/ticker/price"
     async with httpx.AsyncClient() as client:
         response = await client.get(url)
         if response.status_code != 200:
