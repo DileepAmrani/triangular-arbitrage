@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import httpx
+import uvicorn
 
 app = FastAPI()
 
@@ -33,3 +34,6 @@ async def get_prices():
     }
 
     return {"prices": filtered_prices}
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000, reload=True)
